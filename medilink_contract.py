@@ -22,10 +22,10 @@ def build_summary(patient: dict, appointments: list[dict], clinic_status: str = 
     if not isinstance(clinic_status, str) or not clinic_status.strip():
         raise ValueError("clinic_status must be a non-empty string")
 
-    # Return a new dictionary instead of mutating the incoming patient object.
+       # Return a new dictionary instead of mutating the incoming patient object.
     # This reduces surprising side effects for callers of the integration function.
-        return {
+    return {
         "patient": dict(patient),
         "appointments": list(appointments),
-        "status": clinic_status.strip().upper(),
+        "clinic_status": clinic_status.strip().upper(),
     }
